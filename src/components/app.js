@@ -9,9 +9,9 @@ export default class App extends Component {
     super();
     this.state = {
       weather: {
-        country: "Loading",
-        main: "Loading",
-        icon: "Loading",
+        country: "",
+        main: "",
+        icon: "",
         temp: 0,
         isLoading: true
       }
@@ -26,15 +26,18 @@ export default class App extends Component {
       });
     });
 
+    // Use promise return to get json data from weather api.
     prom.then((value) => {
       axios.get(`http://api.openweathermap.org/data/2.5/weather?lat=${value.coords.latitude}&lon=${value.coords.longitude}&&APPID=265aef4d63230a48ab0446fe91afec9a`).then(res => {
         var weather = {
           country: res.data.sys.country,
+          city: res.data.name,
           main: res.data.weather[0].main,
-          icon: res.data.weather[0].icon,
+          iconId: "wi wi-owm-" + res.data.weather[0].id,
           temp: (res.data.main.temp * 9/5) - 459.67,
           isLoading: false
         }
+        console.log(res);
         this.setState({weather: weather});
       });
     })
