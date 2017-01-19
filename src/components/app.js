@@ -42,10 +42,13 @@ export default class App extends Component {
       });
     })
   }
+
   render() {
     return (
       <div>
         <Weather weather={this.state.weather} />
+        <h3><a href="https://github.com/CollinPerkins/reactWeather" target="_blank">Github Link for React Weather App</a></h3>
+        <p>P.S. Make sure you allow connection in order to get data.</p>
       </div>
     );
   }
