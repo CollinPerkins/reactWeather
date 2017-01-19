@@ -1,7 +1,7 @@
 {
-  "name": "starter",
+  "name": "reactWeatherApp",
   "version": "1.0.0",
-  "description": "React Redux Starter",
+  "description": "React Weather App",
   "main": "app.js",
   "repository": "",
   "scripts": {
